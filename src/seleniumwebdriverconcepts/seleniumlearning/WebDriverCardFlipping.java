@@ -22,6 +22,6 @@ public class WebDriverCardFlipping {
         }
         else
             return;
-        System.out.println("hi");
+        System.out.println("hi,hi");
     }
 }
