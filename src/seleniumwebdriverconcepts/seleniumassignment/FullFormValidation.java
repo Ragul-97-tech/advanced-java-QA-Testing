@@ -18,8 +18,8 @@ public class FullFormValidation {
         String[] hobbies = {"Sports","Reading", "Music"};
 
         Validations validate = new Validations();
-        validate.emptyValidation();
 
+        validate.emptyValidation();
         js.executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.id("submit")));
         Thread.sleep(500);
         driver.findElement(By.id("submit")).click();
@@ -96,7 +96,7 @@ public class FullFormValidation {
             driver.findElement(By.id("city")).click();
             nOfElements = driver.findElements(By.cssSelector("#city .css-11unzgr > *")).size();
             Thread.sleep(500);
-            driver.findElement(By.cssSelector("#city .css-11unzgr react-select-4-option-" + (int) (Math.random() * nOfElements))).click();
+            driver.findElement(By.cssSelector("#city .css-11unzgr #react-select-4-option-" + (int) (Math.random() * nOfElements))).click();
 
             js.executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.id("submit")));
             Thread.sleep(500);
