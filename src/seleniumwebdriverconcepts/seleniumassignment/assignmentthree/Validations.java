@@ -1,4 +1,4 @@
-package seleniumwebdriverconcepts.seleniumassignment;
+package seleniumwebdriverconcepts.seleniumassignment.assignmentthree;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -10,10 +10,8 @@ import seleniumwebdriverconcepts.WebDriverHelper;
 
 import java.time.Month;
 import java.time.format.TextStyle;
-import java.util.List;
 import java.util.Locale;
 import java.util.NoSuchElementException;
-import java.util.stream.Collectors;
 
 public class Validations {
 
@@ -28,11 +26,15 @@ public class Validations {
     int[] lowerCaseLetters = {97, 122};
     String[] GENDER = {"Male", "Female", "Others"};
 
-    Logger logger = LogManager.getLogger("Validations");
+    public Logger logger = LogManager.getLogger("Validations");
     WebDriver driver = WebDriverHelper.getWebDriver();
 
     private char getRandomChar(int min, int max) {
         return (char)(int)((Math.random() * (max - min + 1)) + min);
+    }
+
+    public int getRandomInt(int min, int max) {
+        return (int)((Math.random() * (max - min + 1)) + min);
     }
 
     private char getSpecialChar(){
@@ -70,6 +72,7 @@ public class Validations {
         try {
             driver.findElements(By.cssSelector("input, textarea")).stream().filter(WebElement -> WebElement.isDisplayed() && WebElement.isEnabled()).toList().forEach(WebElement::clear);
             driver.findElements(By.cssSelector(".subjects-auto-complete__multi-value .subjects-auto-complete__multi-value__remove")).stream().filter(WebElement -> WebElement.isDisplayed() && WebElement.isEnabled()).toList().forEach(WebElement::click);
+            System.out.println("Click" + driver.findElements(By.cssSelector(".subjects-auto-complete__multi-value .subjects-auto-complete__multi-value__remove")));
         } catch (NoSuchElementException e) {
         } catch (InvalidElementStateException e) {
         }

@@ -1,4 +1,4 @@
-package seleniumwebdriverconcepts.seleniumassignment;
+package seleniumwebdriverconcepts.seleniumassignment.assignmentthree;
 
 import org.openqa.selenium.*;
 import seleniumwebdriverconcepts.WebDriverHelper;
