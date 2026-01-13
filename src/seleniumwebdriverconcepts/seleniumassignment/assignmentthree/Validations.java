@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.InvalidElementStateException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import seleniumwebdriverconcepts.CaseFormat;
 import seleniumwebdriverconcepts.WebDriverHelper;
 
 import java.time.Month;
@@ -79,7 +80,7 @@ public class Validations {
     }
 
     public void onlySpaceValidation() {
-        driver.findElements(By.tagName("input, textarea")).forEach(ele -> ele.sendKeys(" "));
+        driver.findElements(By.cssSelector("input, textarea")).forEach(ele -> ele.sendKeys(" "));
     }
 
     public String getRandomGender() {
@@ -90,7 +91,7 @@ public class Validations {
         return (long)(Math.random() * (9999999999L - 1000000000) + 1000000000)+"";
     }
 
-    public String getRandomDate() {
+    public String getRandomShortDate() {
         return String.format("%02d %s %d",(int)(Math.random() * 31 + 1), Month.values()[(int)(Math.random() * 12)].getDisplayName(TextStyle.SHORT, Locale.US),(int)(Math.random() * (2027 - 2000) + 2000));
     }
 
@@ -103,5 +104,26 @@ public class Validations {
 
     public boolean isValidInputs() {
         return driver.findElements(By.cssSelector("input:valid, select:valid, textarea:valid")).isEmpty();
+    }
+
+    public double localeStringNumberToNumber(String numberLocale) {
+        if (numberLocale == null || numberLocale.trim().isEmpty())
+            throw new IllegalArgumentException();
+
+        String number = numberLocale.trim().toLowerCase();
+        int multiplier = 1;
+        if (number.contains("lakh")) {
+            multiplier = 100000;
+            number = number.replaceAll("lakh", "").replaceAll("lakhs", "");
+        }
+        if (number.contains("crore")) {
+            multiplier = 10000000;
+            number = number.replaceAll("crore", "").replaceAll("crores", "");
+        }
+        if (number.contains("thousand")) {
+            multiplier = 1000;
+            number = numberLocale.replaceAll("thousand","").replaceAll("thousands", "");
+        }
+        return Double.parseDouble(number) * multiplier;
     }
 }

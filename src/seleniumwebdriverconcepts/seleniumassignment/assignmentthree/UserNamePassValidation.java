@@ -1,6 +1,7 @@
 package seleniumwebdriverconcepts.seleniumassignment.assignmentthree;
 
 import org.openqa.selenium.*;
+import seleniumwebdriverconcepts.CaseFormat;
 import seleniumwebdriverconcepts.WebDriverHelper;
 import java.util.Scanner;
 

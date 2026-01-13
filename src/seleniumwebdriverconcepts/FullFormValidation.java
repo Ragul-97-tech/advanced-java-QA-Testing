@@ -1,7 +1,7 @@
-package seleniumwebdriverconcepts.seleniumassignment.assignmentthree;
+package seleniumwebdriverconcepts;
 
 import org.openqa.selenium.*;
-import seleniumwebdriverconcepts.WebDriverHelper;
+import seleniumwebdriverconcepts.seleniumassignment.assignmentthree.Validations;
 
 import java.io.File;
 import java.util.Scanner;
